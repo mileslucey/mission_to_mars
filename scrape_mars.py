@@ -66,15 +66,16 @@ def scrape_info():
     time.sleep(1)
     mars_facts_html = browser.html
     time.sleep(1)
+    # Scrape page into Soup
     mars_facts_soup = bs(mars_facts_html,"html.parser")
     time.sleep(1)
+    # Find the text in soup
     mars_table = mars_facts_soup.find("table", class_ = 'tablepress tablepress-id-mars')
     c1 = mars_table.find_all("td",class_="column-1")
     c2 = mars_table.find_all("td",class_="column-2")
-
+    # Create a dataframe from the uncovered text
     categories_mars = []
     values_mars = []
-
     for x in c1:
         categories_mars.append(x.text.strip())
     for y in c2:
@@ -83,35 +84,11 @@ def scrape_info():
         "Description": categories_mars,
         "Value": values_mars 
         })
-
+    # convert dataframe to html
     mars_facts_table_html = mars_facts_table.to_html(header=False, index=False)
 
 
-    # XXXXXXX
-
-    # Visit visitcostarica.herokuapp.com
-    url = "https://visitcostarica.herokuapp.com/"
-    browser.visit(url)
-
-    time.sleep(1)
-
-    # Scrape page into Soup
-    html = browser.html
-    soup = bs(html, "html.parser")
-
-    # Get the average temps
-    avg_temps = soup.find('div', id='weather')
-
-    # Get the min avg temp
-    min_temp = avg_temps.find_all('strong')[0].text
-
-    # Get the max avg temp
-    max_temp = avg_temps.find_all('strong')[1].text
-
-    # BONUS: Find the src for the sloth image
-    relative_image_path = soup.find_all('img')[2]["src"]
-    sloth_img = url + relative_image_path
-
+    # PART 6 -- CREATING A DICTIONARY FOR EVERYTHING
     # Store data in a dictionary
     mars_data = {
         "news_title": news_title,
