@@ -12,16 +12,16 @@
 <body>
   <div class="container-fluid">
     <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
+      <h1><strong>Mission to Mars</strong></h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-    <h2>Latest Mars News</h2>
-    <h3>{{ vacation.news_title }}</h3>
+    <h2><strong>Latest Mars News</strong></h2>
+    <h4><strong>{{ vacation.news_title }}</strong></h4>
     <p>{{ vacation.news_p }}</p>
     <img src="{{ vacation.featured_image_url }}" alt="Mars">
-    <h2>Current Weather on Mars:</h2>
+    <h2><strong>Current Weather on Mars:</strong></h2>
     <p>{{ vacation.mars_weather }}</p>
-    <h4>Mars Facts</h4>
+    <h4><strong>Mars Facts:</strong></h4>
     <p>{{vacation.mars_facts_table_html | safe}}</p>
     <!-- <table>{{ vacation.mars_facts_table_html }}</table> -->
   </div>
