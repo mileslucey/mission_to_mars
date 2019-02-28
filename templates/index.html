@@ -16,15 +16,15 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
     <h2><strong>Latest Mars News:</strong></h2>
-    <h4><strong>{{ vacation.news_title }}</strong></h4>
-    <p>{{ vacation.news_p }}</p>
-    <img src="{{ vacation.featured_image_url }}" alt="Mars">
+    <h4><strong>{{ mars_data_123.news_title }}</strong></h4>
+    <p>{{ mars_data_123.news_p }}</p>
+    <img src="{{ mars_data_123.featured_image_url }}" alt="Mars">
     <h2><strong>Current Weather on Mars:</strong></h2>
-    <p>{{ vacation.mars_weather }}</p>
+    <p>{{ mars_data_123.mars_weather }}</p>
     <h2><strong>Mars Facts:</strong></h2>
-    <p>{{vacation.mars_facts_table_html | safe}}</p>
+    <p>{{mars_data_123.mars_facts_table_html | safe}}</p>
     <h1><strong>Mars Hemispheres:</strong></h1>
-    {% for x in vacation.list_of_img_urls %}
+    {% for x in mars_data_123.list_of_img_urls %}
       <div class= "col-md-6">
         <img src = "{{x.img_url}}">
           <h4><strong>{{x.title}}</strong></h4>
