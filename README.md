@@ -16,11 +16,11 @@
 * The project also scrapes the data in a Flask app and displays all the information using HTML
 ### Files
 * The analysis includes the following files:
-    * A "mission_to_mars.ipynb" Jupyter Notebook that shows the desired information scraped line-by-line
+    * A "mission_to_mars.ipynb" Jupyter Notebook that scrapes the desired information line-by-line
     * An "app.py" Python Flask app that pulls all the information together using these files:
-        * A "scrape_mars.py" Python file that scrapes the information (in a similar way that the Jupyter Notebook does)
+        * A "scrape_mars.py" Python file that scrapes the information (similar to the Jupyter Notebook)
         * An "index.html" HTML file in the "templates" folder that displays the scraped information in a web page
         * A "style.css" CSS file that formats the HTML file
-    * Four PNG screenshots in the "web page screenshots" folder that show images of the final web page
+    * Four PNG files in the "web page screenshots" folder that show screenshots of the final web page
         
     
