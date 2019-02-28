@@ -88,6 +88,38 @@ def scrape_info():
     mars_facts_table_html = mars_facts_table.to_html(header=False, index=False)
 
 
+    # PART 5 -- HEMISPHERES OF MARS
+    # Establish list and links
+    list_of_img_urls = []
+    mars_hemisphere_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    hemisphere_base_url = "https://astrogeology.usgs.gov"
+    # Go to Astrogeology website
+    browser.visit(mars_hemisphere_url)
+    time.sleep(1)
+    html_hemispheres = browser.html
+    time.sleep(1)
+    # Make website into soup
+    hemisphere_soup = bs(html_hemispheres, 'html.parser')
+    time.sleep(1)
+    items = hemisphere_soup.find_all('div', class_='item')
+    time.sleep(1)
+    # create a loop to populate the list
+    for x in items:
+        title = x.find("h3").text
+        time.sleep(1)
+        image_url_portion = x.find('a', class_='itemLink product-item')["href"]
+        time.sleep(1)
+        browser.visit(hemisphere_base_url + image_url_portion)
+        time.sleep(1)
+        image_url_portion_html = browser.html
+        time.sleep(1)
+        hemisphere_soup = bs(image_url_portion_html,"html.parser")
+        time.sleep(1)
+        complete_img_url = hemisphere_base_url + hemisphere_soup.find("img",class_="wide-image")["src"]
+        time.sleep(1)
+        list_of_img_urls.append({"title":title,"img_url":complete_img_url})
+        time.sleep(1)
+
     # PART 6 -- CREATING A DICTIONARY FOR EVERYTHING
     # Store data in a dictionary
     mars_data = {
@@ -95,7 +127,8 @@ def scrape_info():
         "news_p": news_p,
         "featured_image_url": featured_image_url,
         "mars_weather": mars_weather,
-        "mars_facts_table_html": mars_facts_table_html
+        "mars_facts_table_html": mars_facts_table_html,
+        "list_of_img_urls": list_of_img_urls
     }
 
     # Close the browser after scraping
