@@ -13,5 +13,6 @@ six==1.11.0
 SQLAlchemy==1.2.10
 Werkzeug==0.14.1
 gunicorn==19.7.1
-
 Flask-PyMongo==2.2.0
+bs4==0.0.1
+splinter==0.10.0
