@@ -23,6 +23,6 @@
         * A "style.css" CSS file that formats the HTML file
     * Four PNG files in the "web page screenshots" folder that show screenshots of the final web page
 ## Final Product
-![](images/screenshot01.png)
+![](web page screenshots/screenshot01.png)
         
     
